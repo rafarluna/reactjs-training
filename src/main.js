@@ -1,43 +1,17 @@
 //This file is the entry point of the app
+"use strict";
 
-$ = jQuery = require("jquery");
 var React = require("react");
-var Home = require("./components/homePage");
-var About = require("./components/about/aboutPage");
-var Header = require("./components/common/headers");
+var Router = require("react-router");
 
-var Authors = require("./components/authors/authorPage");
+var routes = require("./routes");
 
-(function (win) { //catching all parameters we need useing an alias
-    "use strict";
-
-    var App = React.createClass({
-        render: function () {
-            var Child;
-
-            switch (this.props.route) {
-                case "about": Child = About; break;
-                case "authors": Child = Authors; break;
-                default: Child = Home;
-            }
-
-            return (
-                <div>
-                    <Header />
-                    <Child />
-                </div>
-            );
-        }
-    });
-
-    function render() {
-        var route = win.location.hash.substr(1);
-        React.render(<App route={route} />, document.getElementById("app"));
-    }
-
-    win.addEventListener("hashchange", render);
-
-    //Call render to define the componet to display
-    render();
-
-})(window); //injecting all dependencies we need
+//--Router.HistoryLocation => remove from the URL the "#" character
+//to get some like url/about, instead of
+//to get some like url/#about
+//*******
+//Router.run(routes, Router.HistoryLocation, function(Handler){
+//*******
+Router.run(routes, function(Handler){
+    React.render(<Handler/>, document.getElementById("app"));
+});

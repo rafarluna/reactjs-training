@@ -2,6 +2,7 @@ node_modules
 reports
 .vscode
 npm-debug.log
+dist
 
 # Ignore build files
 build

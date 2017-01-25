@@ -1,6 +1,8 @@
 "use strict";
 
 var React = require("react");
+
+var App = require("../app");
 var AuthorApi = require("../../api/authorApi");
 var AuthorList = require("./authorList");
 
