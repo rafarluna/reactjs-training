@@ -1,0 +1,10 @@
+node_modules
+reports
+.vscode
+npm-debug.log
+
+# Ignore build files
+build
+.gulp-tsc-tmp-*
+
+.DS_Store
