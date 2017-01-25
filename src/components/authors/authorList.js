@@ -1,36 +1,38 @@
 "use strict";
 
-var React = require("react");
+var React = require('react');
+var Router = require('react-router');
+var Link = Router.Link;
 
 var AuthorList = React.createClass({
+	propTypes: {
+		authors: React.PropTypes.array.isRequired //property is Required and it's an array
+	},
 
-    propTypes:{
-        authors: React.PropTypes.array.isRequired //indicates this is an array and is required, passed as a property
-    },
+	render: function() {
+		var createAuthorRow = function(author) {
+			return (
+				<tr key={author.id}>
+					<td><Link to="manageAuthor" params={{id: author.id}}>{author.id}</Link></td>
+					<td>{author.firstName} {author.lastName}</td>
+				</tr>
+			);
+		};
 
-    render: function () {
-        var createAuthorRow = function(author){
-            return (
-                <tr key={author.id}>
-                    <td><a href={"/#authors/" + author.id}>{author.id}</a></td>
-                    <td>{author.firstName} {author.lastName}</td>
-                </tr>
-            );
-        }
-        return (
-            <div>
-                <table className="table">
-                    <thead>
-                        <td>Id</td>
-                        <td>Name</td>
-                    </thead>
-                    <tbody>
-                        {this.props.authors.map(createAuthorRow, this)}
-                    </tbody>
-                </table>
-            </div>
-        );
-    }
+		return (
+			<div>
+				<table className="table">
+					<thead>
+						<th>ID</th>
+						<th>Name</th>
+					</thead>
+					<tbody>
+						{this.props.authors.map(createAuthorRow, this)}
+					</tbody>
+				</table>
+			</div>
+		);
+	}
 });
 
 module.exports = AuthorList;
