@@ -2,10 +2,9 @@ node_modules
 reports
 .vscode
 npm-debug.log
-dist
+dist/
 
 # Ignore build files
 build
 .gulp-tsc-tmp-*
-
 .DS_Store

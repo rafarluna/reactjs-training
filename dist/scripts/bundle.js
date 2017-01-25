@@ -50535,7 +50535,7 @@ var Header = React.createClass({displayName: "Header",
                 )
             )
         );
-    } 
+    }
 });
 
 module.exports = Header;

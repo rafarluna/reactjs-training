@@ -20,7 +20,7 @@ var Header = React.createClass({
                 </div>
             </nav>
         );
-    } 
+    }
 });
 
 module.exports = Header;
