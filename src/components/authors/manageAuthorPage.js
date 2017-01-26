@@ -8,7 +8,7 @@ var toastr = require('toastr');
 
 var ManageAuthorPage = React.createClass({
 	mixins: [
-		//Router.Navigation??? //to use transition.abort() // above
+		Router.Navigation //to be able to use transition.abort() // above
 	],
 
 	statics: {
